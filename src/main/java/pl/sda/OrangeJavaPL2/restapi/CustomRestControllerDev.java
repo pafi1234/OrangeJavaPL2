@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@Profile("dev")
+@Profile("dev")//Runs with specific profile
 @RestController
 public class CustomRestControllerDev {
 
 
 
     @GetMapping("/hello")
-    public String helloDev(){
+    public String hello(){
         return "Hello ByczQ from Dev";
     }
 

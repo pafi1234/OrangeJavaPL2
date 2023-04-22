@@ -11,7 +11,7 @@ public class CustomRestControllerPrd {
 
 
     @GetMapping("/hello")
-    public String helloDev(){
+    public String hello(){
         return "Hello ByczQ from Prd";
     }
 
