@@ -3,23 +3,39 @@ package pl.sda.OrangeJavaPL2.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
-@Entity
-@Setter
-@Getter
-@NoArgsConstructor
+@Entity // Database entity-object to map
+@Setter // Required for entity
+@Getter // Required for entity
+@NoArgsConstructor // Required for entity
 @AllArgsConstructor
-@Table(name = "breads")
+@ToString
+@Table(name = "breads") // Change default name to custom one
 public class Bread {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Required for entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Autoincrement id with every single object
     Long id;
     String name;
-    @Column(name = "price_in_pln")
-    Double price;
+    @Enumerated(EnumType.STRING)
+    BreadType breadType;
+    @Column(name = "price_in_pln") // Change default name to custom one
+    BigDecimal price;
 
-    public Bread(String name, Double price) {
+    public Bread(String name, BreadType breadType, BigDecimal price) {
+        this.name = name;
+        this.breadType = breadType;
+        this.price = price;
+    }
+
+    public Bread(Long id, String name, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public Bread(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }
