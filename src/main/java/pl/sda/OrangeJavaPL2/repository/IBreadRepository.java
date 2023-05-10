@@ -17,12 +17,17 @@ public interface IBreadRepository extends JpaRepository<Bread,Long> {
 
     Bread findByName(String name);
 
+    //    Bread findBreadsBy - custom FindBy
     @Query(value = "UPDATE Bread SET name = :name, price = :price, bread_type = :type WHERE id = :id")
     @Modifying
-    @Transactional
+    @Transactional // all or nothing
     void updateBread(@Param("id") Long id,
                      @Param("name") String name,
                      @Param("price") BigDecimal price,
                      @Param("type") String type);
-    // Select * from users where name = [ AND 1=1; DROP users]; -> SQL Injection
+    // Select * from users where name = [ AND 1=1x; DROP users]; -> SQL Injection
+
+
+
+//    name [ or 1=1; drop users;]
 }

@@ -28,15 +28,4 @@ public class Bread {
         this.breadType = breadType;
         this.price = price;
     }
-
-    public Bread(Long id, String name, BigDecimal price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
-
-    public Bread(String name, BigDecimal price) {
-        this.name = name;
-        this.price = price;
-    }
 }

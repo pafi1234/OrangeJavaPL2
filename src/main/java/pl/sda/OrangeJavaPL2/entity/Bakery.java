@@ -22,8 +22,19 @@ public class Bakery {
 
     @OneToOne(cascade = CascadeType.ALL)
     Address address;
-
-    @Embedded
+    //Many to Many - book - author
+//Bakery - Owner -
+    @OneToOne(cascade = CascadeType.ALL)
     Owner owner;
 
+    //  Constructor with all fields except id
+    public Bakery(List<Bread> breadList, Address address, Owner owner) {
+        this.breadList = breadList;
+        this.address = address;
+        this.owner = owner;
+    }
+//    -> unpack to below fields
+//    String firstName;
+//    String lastName;
+//    int age;
 }
